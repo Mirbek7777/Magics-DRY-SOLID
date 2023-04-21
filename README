@@ -1,1 +1,176 @@
-Добрый день! все комментарии по шаблонам я написал в коде. Через todo.
+public static void printAction() {
+        System.out.println("\n" +
+
+   // todo чтобы код постоянно не писать используем printAction() это шаблон DRY.     
+
+public static void printNumberOfFilter() {
+        System.out.println("Как вы хотите отфильтровать товары?\n " +
+                "Варианты фиитрации:\n" +
+                " 1 - По цене\n" +
+                " 2 - По производителям \n" +
+                " 3 - По ключевым словам\n");
+                // todo чтобы код постоянно не писать используем printNumberOfFilter() это шаблон DRY.
+
+                 public static void printShoppingDepartments() {
+        System.out.println("Из какого отдела вы хотите купить товары?\n" +
+                "1 - Молочный отдел\n" +
+                "2 - Мясо\n" +
+                "3 - Удалить товары\n" +
+                "0 - Завершение покупок\n");
+                 // todo чтобы код постоянно не писать используем printShoppingDepartments() это шаблон DRY.
+
+                 
+                 
+                 
+                 public static Map<Integer, Products> addToBasket(Map<Integer, Products> productsToBasket, Map<Integer, Products> basket) {
+        int key = basket.size() + 1;
+
+        for (Map.Entry<Integer, Products> entry : productsToBasket.entrySet()) {
+
+            Products product = entry.getValue();
+            basket.put(key, product);
+            key = key + 1;
+        }
+        return basket;
+    }
+
+    public static Map<Integer, Products> sortingBasket(Map<Integer, Products> basket) {
+
+        Map<Integer, Products> sortedBasket = new HashMap<>();
+        int key = 1;
+
+        for (Map.Entry<Integer, Products> entry : basket.entrySet()) {
+            Products product = entry.getValue();
+            sortedBasket.put(key, product);
+            key = key + 1;
+        }
+        return sortedBasket;
+    }
+
+    // todo S - принцип единственной ответственности (Single Responsibility Principle)
+//  Класс должен выполнять только те функции, для которых он логически предназначен.
+
+public Map<Integer, Products> getGoods() {
+
+        Map<Integer, Products> productsCollections = new HashMap<>();
+
+        for (int i = 0; i < listMilkProduct.size(); i++) {
+            productsCollections.put(i + 1, new DairyProducts(
+                    listMilkProduct.get(new Random().nextInt(listMilkProduct.size())),
+                    new Random().nextInt(200),
+                    listManufacturer.get(new Random().nextInt(listManufacturer.size()))
+            ));
+            // todo чтобы тут цифры не писать передаем listMeatProduct.size() это шаблон Magics.
+
+            public interface Goods {
+
+    Map<Integer, Products> getGoods();
+
+    Map<Integer, Products> filterPrice(Map<Integer, Products> products, Integer maxPrice);
+
+    Map<Integer, Products> filterManufacturer(Map<Integer, Products> products, String manufacturer);
+
+    Map<Integer, Products> filterKeyword(Map<Integer, Products> products, String keyword);
+
+    String toString(HashMap<Integer, Products> goods);
+}
+
+// todo I - принцип сегрегации (разделения) интерфейса (Interface Segregation Principle)  Много интерфейсов, специально предназначенных для клиентов, лучше, чем один
+//        интерфейс общего назначения.
+
+
+public interface ShoppingBasket {
+
+    Map<Integer, Products> addProduct(Map<Integer, Products> products, int numberProduct, int count);
+
+    Map<Integer, Products> deleteProduct(Map<Integer, Products> products, int numberProduct);
+    String toString(HashMap<Integer, Products> goodsToBuy);
+
+}
+
+// todo I - принцип сегрегации (разделения) интерфейса (Interface Segregation Principle)
+// todo Много интерфейсов, специально предназначенных для клиентов, лучше, чем один   интерфейс общего назначения.
+
+public class ShoppingBasketImpl implements ShoppingBasket {
+    @Override
+    public Map<Integer, Products> addProduct(Map<Integer, Products> products, int numberProduct, int count)
+
+     // todo L - принцип замены Барбары Лисков (Liskov Substitution Principle)
+ // todo Наследуй только тогда, когда можешь играть роль за предка.
+
+
+ public abstract class Products  {
+
+    private String title;
+    private int count;
+    private String manufacturer;
+
+
+
+    public abstract String getTitle();
+
+    public abstract int getCount();
+
+    public abstract String getManufacturer();
+
+    public abstract void setTitle(String title);
+
+
+    public abstract void setCount(int count);
+
+    public abstract void setManufacturer(String manufacturer);
+
+    public Map<Integer, Products> filterPrice(Map<Integer, Products> products, Integer maxPrice) {
+
+        Map<Integer, Products> filterProducts = new HashMap<>();
+
+        for (Map.Entry<Integer, Products> entry : products.entrySet()) {
+            Integer key = entry.getKey();
+            Products product = entry.getValue();
+            int value = entry.getValue().getCount();
+            if (value < maxPrice) {
+                filterProducts.put(key, product);
+            }
+        }
+        return filterProducts;
+    }
+
+
+    public Map<Integer, Products> filterManufacturer(Map<Integer, Products> products, String manufacturer) {
+
+        int key = 1;
+
+        Map<Integer, Products> filterProducts = new HashMap<>();
+
+        for (Map.Entry<Integer, Products> entry : products.entrySet()) {
+            Products product = entry.getValue();
+            String value = entry.getValue().getManufacturer();
+            if (manufacturer.equalsIgnoreCase(value)) {
+                filterProducts.put(key, product);
+                key = key + 1;
+            }
+        }
+        return filterProducts;
+    }
+
+    public Map<Integer, Products> filterKeyword(Map<Integer, Products> products, String keyword) {
+
+        int key = 1;
+
+        Map<Integer, Products> filterProducts = new HashMap<>();
+
+        for (Map.Entry<Integer, Products> entry : products.entrySet()) {
+            Products product = entry.getValue();
+            String value = entry.getValue().getTitle();
+            if (keyword.equalsIgnoreCase(value)) {
+                filterProducts.put(key, product);
+                key = key + 1;
+
+            }
+        }
+        return filterProducts;
+    }
+}
+
+        // todo O - принцип открытости/закрытости (Open Closed Principle)
+        // todo Программные сущности должны быть открыты для расширения, но закрыты для  модификации.
