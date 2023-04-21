@@ -11,3 +11,6 @@ public interface ShoppingBasket {
     String toString(HashMap<Integer, Products> goodsToBuy);
 
 }
+
+// todo I - принцип сегрегации (разделения) интерфейса (Interface Segregation Principle)
+// todo Много интерфейсов, специально предназначенных для клиентов, лучше, чем один   интерфейс общего назначения.

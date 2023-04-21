@@ -50,6 +50,8 @@ public class DairyProducts extends Products implements Goods {
         this.manufacturer = manufacturer;
     }
 
+
+
     @Override
     public Map<Integer, Products> getGoods() {
 
@@ -61,6 +63,7 @@ public class DairyProducts extends Products implements Goods {
                     new Random().nextInt(200),
                     listManufacturer.get(new Random().nextInt(listManufacturer.size()))
             ));
+            // todo чтобы тут цифры не писать передаем listMeatProduct.size() это шаблон Magics.
         }
         return productsCollections;
     }

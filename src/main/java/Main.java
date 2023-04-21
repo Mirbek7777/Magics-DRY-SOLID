@@ -188,6 +188,8 @@ public class Main {
                 "6 - Система рейтинга для товаров\n" +
                 "7 - Простая рекомендательная система для покупок \n" +
                 "0 - Для выхода из магазина");
+
+        // todo чтобы код постоянно не писать используем printAction() это шаблон DRY.
     }
 
     public static void printNumberOfFilter() {
@@ -196,6 +198,8 @@ public class Main {
                 " 1 - По цене\n" +
                 " 2 - По производителям \n" +
                 " 3 - По ключевым словам\n");
+
+        // todo чтобы код постоянно не писать используем printNumberOfFilter() это шаблон DRY.
     }
 
     public static void printShoppingDepartments() {
@@ -204,6 +208,8 @@ public class Main {
                 "2 - Мясо\n" +
                 "3 - Удалить товары\n" +
                 "0 - Завершение покупок\n");
+
+        // todo чтобы код постоянно не писать используем printShoppingDepartments() это шаблон DRY.
     }
 
     public static Map<Integer, Products> addToBasket(Map<Integer, Products> productsToBasket, Map<Integer, Products> basket) {
@@ -232,3 +238,5 @@ public class Main {
     }
 
 }
+// todo S - принцип единственной ответственности (Single Responsibility Principle)
+//  Класс должен выполнять только те функции, для которых он логически предназначен.

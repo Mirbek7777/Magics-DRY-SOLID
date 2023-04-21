@@ -60,6 +60,10 @@ public class Meat extends Products implements Goods {
                     new Random().nextInt(500),
                     listManufacturer.get(new Random().nextInt(listManufacturer.size()))
             ));
+
+            // todo чтобы тут цифры не писать передаем listMeatProduct.size() это шаблон Magics.
+
+
         }
         return productsCollections;
     }

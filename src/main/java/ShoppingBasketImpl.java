@@ -45,3 +45,6 @@ public class ShoppingBasketImpl implements ShoppingBasket {
         return sb.toString();
     }
 }
+
+ // todo L - принцип замены Барбары Лисков (Liskov Substitution Principle)
+ // todo Наследуй только тогда, когда можешь играть роль за предка.

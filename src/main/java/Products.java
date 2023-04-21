@@ -75,3 +75,9 @@ public abstract class Products  {
         return filterProducts;
     }
 }
+
+        // todo O - принцип открытости/закрытости (Open Closed Principle)
+        // todo Программные сущности должны быть открыты для расширения, но закрыты для  модификации.
+
+
+
